@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+    max-width: 40vw;
+    margin: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#formDiv {
+    width: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label {
+    font-size: large;
+}
+
+@media only screen and (max-width: 1000px) {
+    body {
+        max-width: 90vw;
+    }
+}
+
+</style>
+</head>
+<body onload="setAttributes()">
+<div id="formDiv">
+  <h1>Lämpötilan muunnos</h1>
+    <label for="temp">Anna lämpötila</label>
+    <input type="text" id="temp" name="temp">
+    <button type="button" onclick="toFah()">Muunna Fahrenheitiksi</button>
+    <button type="button" onclick="toCel()">Muunna Celciukseksi</button>
+    <h1 id="result">Tulos tähän</h1>
+</div>
+</body>
+<script>
+  function toFah(){
+    var celsius = parseFloat(document.getElementById("temp").value);
+    console.log(celsius);
+    document.getElementById("result").innerText = ((celsius*1.8)+32).toFixed(2)+'°F';
+  }
+  function toCel(){
+    var fahrenheit = parseFloat(document.getElementById("temp").value);
+    console.log(fahrenheit);
+    document.getElementById("result").innerText = ((fahrenheit-32)/1.8).toFixed(2)+'°C';
+  }
+</script>
+</html>
